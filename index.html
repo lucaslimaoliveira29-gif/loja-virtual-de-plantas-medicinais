@@ -3,939 +3,514 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verde & Cura | Plantas Medicinais de Qualidade</title>
+    <title>Estilo Bruto - Moda Country & Sertaneja</title>
+    <!-- Fonte Google (Montserrat e Rye para estilo rústico) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Rye&display=swap" rel="stylesheet">
+    <!-- Ícones (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root {
-            --verde-escuro: #1b5e20;
-            --verde-principal: #2e7d32;
-            --verde-claro: #8bc34a;
-            --verde-suave: #e8f5e9;
-            --verde-fundo: #f3f9f2;
-            --texto: #233027;
-            --cinza: #5d6d62;
-            --dourado: #d9b44a;
-            --branco: #ffffff;
-            --sombra: rgba(18, 48, 23, 0.12);
-        }
-
+        /* Estilos Globais */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --primary-color: #4a2c11; /* Marrom couro */
+            --secondary-color: #d4a373; /* Bege/Dourado rústico */
+            --dark-color: #1a110b;
+            --light-color: #fefae0;
+            --accent-color: #8b0000; /* Vermelho queimado */
         }
 
         body {
-            background: linear-gradient(180deg, #f6faf6 0%, #eef5ee 100%);
-            color: var(--texto);
-            line-height: 1.6;
+            background-color: #f9f6f0;
+            color: var(--dark-color);
         }
 
         a {
             text-decoration: none;
+            color: inherit;
         }
 
-        .topbar {
-            background: #173f1f;
-            color: #edf7ee;
+        /* Cabeçalho e Navegação */
+        header {
+            background-color: var(--dark-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
             text-align: center;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 10px 16px;
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        .site-header {
-            background: linear-gradient(135deg, #1f6f2d 0%, #2e7d32 100%);
-            color: var(--branco);
-            box-shadow: 0 8px 25px rgba(27, 94, 32, 0.18);
-        }
-
-        .header-inner,
-        .nav-inner,
-        .container {
-            max-width: 1180px;
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Rye', cursive;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+
+        .user-actions a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Banner Principal (Hero) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
             padding: 0 20px;
         }
 
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding-top: 22px;
-            padding-bottom: 22px;
+        .hero h1 {
+            font-family: 'Rye', cursive;
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-
-        .brand-mark {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            background: rgba(255,255,255,0.14);
-            border: 1px solid rgba(255,255,255,0.25);
-            font-size: 1.3rem;
-        }
-
-        .brand-text {
-            font-size: 1.5rem;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .header-actions .mini-btn,
-        .btn-primary,
-        .btn-secondary {
-            border: none;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .mini-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.18);
-            color: var(--branco);
-            padding: 10px 14px;
-            font-weight: 600;
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            padding-bottom: 18px;
-            flex-wrap: wrap;
-        }
-
-        .nav-inner a {
-            color: rgba(255,255,255,0.92);
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 999px;
-            transition: background 0.2s ease;
-        }
-
-        .nav-inner a:hover {
-            background: rgba(255,255,255,0.12);
-        }
-
-        .hero {
-            background:
-                linear-gradient(120deg, rgba(18, 54, 23, 0.78), rgba(33, 102, 42, 0.62)),
-                url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            width: 100%;
-            min-height: 460px;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 60px 20px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .hero-copy {
-            color: var(--branco);
-            max-width: 640px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 999px;
-            padding: 7px 12px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 18px;
-        }
-
-        .hero-copy h1 {
-            font-size: clamp(2.5rem, 5vw, 4.3rem);
-            line-height: 1.05;
-            margin-bottom: 16px;
-        }
-
-        .hero-copy p {
-            font-size: 1.08rem;
-            max-width: 560px;
-            color: rgba(255,255,255,0.88);
-            margin-bottom: 24px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-            padding: 14px 24px;
-            font-weight: 700;
-            font-size: 0.98rem;
-        }
-
-        .btn-primary {
-            background: var(--dourado);
-            color: #1f2c1a;
-            box-shadow: 0 10px 18px rgba(217,180,74,0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--branco);
-            border: 1px solid rgba(255,255,255,0.34);
-        }
-
-        .hero-card {
-            background: rgba(255,255,255,0.16);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255,255,255,0.18);
-            border-radius: 26px;
-            padding: 22px;
-            color: var(--branco);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-        }
-
-        .hero-card h3 {
+        .hero p {
             font-size: 1.2rem;
-            margin-bottom: 14px;
+            margin-bottom: 25px;
+            max-width: 600px;
         }
 
-        .mini-list {
-            list-style: none;
-            display: grid;
-            gap: 12px;
-        }
-
-        .mini-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .mini-list li::before {
-            content: '✓';
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
+        .btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border: 2px solid var(--secondary-color);
             font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
         }
 
-        .stats {
-            max-width: 1180px;
-            margin: -28px auto 0;
-            padding: 0 20px 20px;
+        .btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
         }
 
-        .stats-grid {
+        /* Categorias */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Rye', cursive;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(170px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
         }
 
-        .stat-item {
-            background: var(--branco);
-            border-radius: 18px;
-            padding: 22px 18px;
-            border: 1px solid #e2efe4;
-            box-shadow: 0 14px 26px var(--sombra);
+        .category-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+
+        /* Produtos em Destaque */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 250px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 20px;
             text-align: center;
         }
 
-        .stat-item strong {
-            display: block;
-            font-size: 1.8rem;
-            color: var(--verde-principal);
-            margin-bottom: 6px;
-        }
-
-        .stat-item span {
-            color: var(--cinza);
-            font-size: 0.96rem;
-        }
-
-        .container {
-            padding-top: 36px;
-            padding-bottom: 36px;
-        }
-
-        section {
-            background: var(--branco);
-            border: 1px solid #e7efe7;
-            border-radius: 24px;
-            padding: 30px;
-            margin-bottom: 28px;
-            box-shadow: 0 10px 24px rgba(36, 60, 38, 0.04);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 22px;
-        }
-
-        .section-header h2 {
-            color: var(--verde-escuro);
-            font-size: clamp(1.9rem, 2vw, 2.4rem);
-            margin: 0;
-        }
-
-        .section-header p {
-            color: var(--cinza);
-            font-size: 1rem;
-            max-width: 640px;
-        }
-
-        .quality-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(240px, 1fr));
-            gap: 18px;
-            margin-top: 18px;
-        }
-
-        .quality-item {
-            background: linear-gradient(180deg, #f9fff9, #f1f8f1);
-            border: 1px solid #dfeee1;
-            border-radius: 18px;
-            padding: 22px 18px;
-        }
-
-        .quality-item h3 {
-            color: var(--verde-principal);
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 10px;
-            font-size: 1.15rem;
         }
 
-        .quality-item p,
-        .quality-item li,
-        .card p,
-        .card li,
-        .plant-card p,
-        .alert-section li,
-        .alert-section p {
-            color: var(--cinza);
-        }
-
-        .quality-item ul, .alert-section ol, .alert-section ul {
-            margin-left: 18px;
-            margin-top: 10px;
-        }
-
-        .plant-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .plant-card {
-            background: #fff;
-            border: 1px solid #dff0e0;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 12px 26px rgba(34, 74, 41, 0.06);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .plant-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 30px rgba(34, 74, 41, 0.1);
-        }
-
-        .plant-card img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .plant-body {
-            padding: 18px 16px 20px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: var(--verde-suave);
-            color: var(--verde-principal);
-            font-size: 0.7rem;
+        .product-price {
+            font-size: 1.2rem;
+            color: var(--accent-color);
             font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 7px 10px;
-            border-radius: 999px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .plant-card h3 {
-            color: #1e3d29;
-            margin-bottom: 8px;
-            font-size: 1.38rem;
+        /* Sobre / Banner Promocional */
+        .about-banner {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 50px;
         }
 
-        .plant-card p {
-            margin-bottom: 14px;
-            min-height: 72px;
+        .about-banner h2 {
+            font-family: 'Rye', cursive;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
         }
 
-        .plant-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
+        .about-banner p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
-        .plant-price {
-            font-weight: 800;
-            color: var(--verde-principal);
+        /* Rodapé */
+        footer {
+            background-color: var(--dark-color);
+            color: #ccc;
+            padding: 40px 20px 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
             font-size: 1.1rem;
         }
 
-        .add-btn {
-            background: var(--verde-principal);
-            color: var(--branco);
-            border: none;
-            border-radius: 999px;
-            padding: 9px 12px;
-            font-weight: 700;
-            cursor: pointer;
+        .footer-col ul {
+            list-style: none;
         }
 
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
 
-        .card {
-            border: 1px solid #e5efe5;
-            background: #fbfefb;
-            border-radius: 18px;
-            padding: 20px 18px;
+        .footer-col ul li a:hover {
+            color: #fff;
         }
 
-        .card h3 {
-            color: var(--verde-principal);
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-        }
-
-        .alert-section {
-            background: linear-gradient(180deg, #fffaf1 0%, #fff8f0 100%);
-            border-color: #f4dfbb;
-        }
-
-        .alert-section h2 {
-            color: #a86a0d;
-            border: none;
-            margin-bottom: 12px;
-        }
-
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            margin-top: 18px;
-        }
-
-        .testimonial {
-            background: #f5faf5;
-            border: 1px solid #e0ecdf;
-            border-radius: 18px;
-            padding: 18px;
-        }
-
-        .testimonial strong {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--verde-escuro);
-        }
-
-        .newsletter {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            background: linear-gradient(135deg, #1d6a2d 0%, #2f8b38 100%);
-            border: none;
-            color: var(--branco);
-        }
-
-        .newsletter h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 8px;
-        }
-
-        .newsletter p {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .newsletter-form input {
-            min-width: 240px;
-            border: none;
-            border-radius: 999px;
-            padding: 14px 18px;
-            font-size: 1rem;
-        }
-
-        .newsletter-form button {
-            background: var(--dourado);
-            color: #1d2b1d;
-            border: none;
-            border-radius: 999px;
-            padding: 14px 22px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        footer {
+        .copyright {
             text-align: center;
-            padding: 24px 20px 36px;
-            background: #163d1c;
-            color: rgba(255,255,255,0.88);
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.8rem;
         }
 
-        footer p + p {
-            margin-top: 6px;
-        }
-
-        @media (max-width: 860px) {
-            .hero-grid,
-            .quality-grid {
-                grid-template-columns: 1fr;
+        /* Responsividade para Celulares */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Em um projeto real, aqui usaria um menu hambúrguer */
             }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, minmax(140px, 1fr));
-            }
-        }
-
-        @media (max-width: 600px) {
-            .header-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 22px 16px;
-            }
-
-            .plant-card p {
-                min-height: auto;
-            }
-
-            .newsletter-form {
-                width: 100%;
-            }
-
-            .newsletter-form input,
-            .newsletter-form button {
-                width: 100%;
+            .hero h1 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="topbar">Frete grátis acima de R$ 99 | Entrega em 48h</div>
+    <!-- Barra de Frete / Aviso -->
+    <div class="top-bar">
+        FRETE GRÁTIS PARA TODO O BRASIL EM COMPRAS ACIMA DE R$ 299,00! 🤠
+    </div>
 
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="brand">
-                <div class="brand-mark">✿</div>
-                <div class="brand-text">Verde &amp; Cura</div>
-            </div>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-hat-cowboy"></i> Estilo Bruto
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#categorias">Categorias</a></li>
+                <li><a href="#destaques">Lançamentos</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+            </ul>
 
-            <div class="header-actions">
-                <button class="mini-btn">Entrar</button>
-                <button class="mini-btn">Carrinho (3)</button>
+            <div class="user-actions">
+                <a href="#" title="Buscar"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#" title="Minha Conta"><i class="fa-solid fa-user"></i></a>
+                <a href="#" title="Carrinho"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
         </div>
-
-        <nav class="nav-inner" aria-label="Navegação principal">
-            <a href="#qualidade">Qualidade</a>
-            <a href="#plantas">Plantas</a>
-            <a href="#modo-de-uso">Como usar</a>
-            <a href="#prevencoes">Cuidados</a>
-            <a href="#contato">Contato</a>
-        </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-grid">
-                <div class="hero-copy">
-                    <span class="eyebrow">Natureza em cada detalhe</span>
-                    <h1>Plantinhas que cuidam do seu bem-estar</h1>
-                    <p>Seleção premium de ervas medicinais e chás naturais para quem busca saúde, equilíbrio e uma rotina mais consciente.</p>
-                    <div class="hero-actions">
-                        <button class="btn-primary">Comprar agora</button>
-                        <button class="btn-secondary">Ver coleção</button>
-                    </div>
-                </div>
+    <!-- Banner Principal -->
+    <section class="hero" id="inicio">
+        <h1>Traje Country De Verdade</h1>
+        <p>A verdadeira essência do sertanejo você encontra aqui. Couro legítimo, alta durabilidade e a tradição do campo.</p>
+        <a href="#destaques" class="btn">Ver Coleção</a>
+    </section>
 
-                <div class="hero-card">
-                    <h3>O que você encontra:</h3>
-                    <ul class="mini-list">
-                        <li>Ervas orgânicas e selecionadas</li>
-                        <li>Preparo artesanal e cuidado</li>
-                        <li>Entrega rápida e discreta</li>
-                    </ul>
-                </div>
+    <!-- Categorias do Site -->
+    <section class="container" id="categorias">
+        <h2 class="section-title">Nossas Categorias</h2>
+        
+        <div class="categories-grid">
+            <!-- Botas Texanas -->
+            <div class="category-card">
+                <i class="fa-solid fa-shoe-prints"></i>
+                <h3>Botas Texanas</h3>
+            </div>
+
+            <!-- Chapéus -->
+            <div class="category-card">
+                <i class="fa-solid fa-hat-cowboy-side"></i>
+                <h3>Chapéus</h3>
+            </div>
+
+            <!-- Camisas -->
+            <div class="category-card">
+                <i class="fa-solid fa-shirt"></i>
+                <h3>Camisas</h3>
+            </div>
+
+            <!-- Calças -->
+            <div class="category-card">
+                <i class="fa-solid fa-user-ninja"></i> <!-- Ícone representativo -->
+                <h3>Calças Jeans</h3>
+            </div>
+
+            <!-- Cintos -->
+            <div class="category-card">
+                <i class="fa-solid fa-ticket"></i>
+                <h3>Cintos de Couro</h3>
+            </div>
+
+            <!-- Fivelas -->
+            <div class="category-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Fivelas</h3>
             </div>
         </div>
     </section>
 
-    <div class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <strong>12k+</strong>
-                <span>Pedidos entregues</span>
+    <!-- Produtos em Destaque -->
+    <section class="container" id="destaques">
+        <h2 class="section-title">Destaques da Selaria</h2>
+        
+        <div class="products-grid">
+            
+            <!-- Produto 1: Bota -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.tcdn.com.br/img/img_prod/966605/bota_dgo_texana_bico_quadrado_preta_com_costura_verde_agua_12db14g2p_5489_1_87bc57cc80620ce573d98a3a32d5891c.jpg');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Bota Texana Couro Legítimo Cafe</h3>
+                    <p class="product-price">R$ 640,90</p>
+                    <button class="btn" style="width: 100%;">Comprar</button>
+                </div>
             </div>
-            <div class="stat-item">
-                <strong>4.9/5</strong>
-                <span>Avaliação média</span>
+
+            <!-- Produto 2: Chapéu -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://acdn-us.mitiendanube.com/stores/003/953/504/products/img_2576-f7bb8bf27944297bf617466659190767-1024-1024.webp');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Chapéu Country Feltro Preto Premium</h3>
+                    <p class="product-price">R$ 700,00</p>
+                    <button class="btn" style="width: 100%;">Comprar</button>
+                </div>
             </div>
-            <div class="stat-item">
-                <strong>100%</strong>
-                <span>Produção cuidadosa</span>
+
+            <!-- Produto 3: Camisa -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5XWfUgh_nRyfaziR-3ZQGSLSBp_wNtExQoCPDhxugrnk8_5ckBH7FS3bJ&s=10');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Camisa Xadrez Manga Longa Country</h3>
+                    <p class="product-price">R$ 290,90</p>
+                    <button class="btn" style="width: 100%;">Comprar</button>
+                </div>
             </div>
-            <div class="stat-item">
-                <strong>48h</strong>
-                <span>Prazo de entrega</span>
+
+            <!-- Produto 4: Fivela e Cinto -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgqUrWak9GWhaoAT3kXS3uWDFS2S95TIJhOaHSIVd0lnvi8MKPwStcJa00&s=10);"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Cinto Couro Trabalhado + Fivela</h3>
+                    <p class="product-price">R$ 300,90</p>
+                    <button class="btn" style="width: 100%;">Comprar</button>
+                </div>
+            </div>
+              <!-- Produto 5:  Calça -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url(https://down-br.img.susercontent.com/file/br-11134207-7r98o-m1fwyhz8mhg1d6);"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Calças country ariat bordada</h3>
+                    <p class="product-price">R$ 540,90</p>
+                    <button class="btn" style="width: 100%;">Comprar</button>
+                </div>
+
+        </div>
+    </section>
+
+    <!-- Sobre a Loja -->
+    <section class="about-banner" id="sobre">
+        <h2>Tradição e Qualidade no Field & Rodeio</h2>
+        <p>A Estilo Bruto nasceu da paixão pela vida no campo e pelo estilo sertanejo raiz. Oferecemos produtos duráveis e estilosos para quem vive o mundo country de verdade: do dia a dia na fazenda aos grandes rodeios.</p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Estilo Bruto</h4>
+                <p>A sua loja completa de moda country. A verdadeira tradição sertaneja entregue na sua casa.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Categorias</h4>
+                <ul>
+                    <li><a href="#">Botas Texanas</a></li>
+                    <li><a href="#">Chapéus</a></li>
+                    <li><a href="#">Camisas & Polos</a></li>
+                    <li><a href="#">Calças Jeans</a></li>
+                    <li><a href="#">Cintos & Fivelas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Envio e Prazos</a></li>
+                    <li><a href="#">WhatsApp: (00) 99999-9999</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <div style="font-size: 1.5rem; display: flex; gap: 15px; margin-top: 10px;">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-
-        <section id="qualidade">
-            <div class="section-header">
-                <h2>Qualidade que você pode confiar</h2>
-                <p>Selecionamos cada erva com rigor, preservando sabor, aroma e potência natural em cada lote.</p>
-            </div>
-
-            <div class="quality-grid">
-                <div class="quality-item">
-                    <h3>Cultivo consciente</h3>
-                    <p>Produzimos com foco em métodos naturais, livres de agrotóxicos e respeitando a origem da planta.</p>
-                </div>
-
-                <div class="quality-item">
-                    <h3>Controle de qualidade</h3>
-                    <p>Todo processo passa por análise cuidadosa para manter pureza, frescor e consistência do produto final.</p>
-                </div>
-
-                <div class="quality-item">
-                    <h3>Secagem correta</h3>
-                    <p>O armazenamento e a secagem seguem padrões que preservam nutrientes e propriedades aromáticas da planta.</p>
-                </div>
-
-                <div class="quality-item">
-                    <h3>Transparência</h3>
-                    <p>Você acompanha informações sobre origem, preparo e indicação de uso com mais clareza e confiança.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="plantas">
-            <div class="section-header">
-                <h2>Mais vendidos da loja</h2>
-                <p>Ervas selecionadas para quem busca cuidado natural no dia a dia, com variedade de aromas e benefícios.</p>
-            </div>
-
-            <div class="plant-grid">
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80" alt="Folhas de boldo">
-                    <div class="plant-body">
-                        <span class="tag">Digestivo</span>
-                        <h3>Boldo</h3>
-                        <p>Folha tradicional para auxiliar no cuidado do dia a dia e na rotina de digestão.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 14,90</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=80" alt="Flores de camomila">
-                    <div class="plant-body">
-                        <span class="tag">Relaxante</span>
-                        <h3>Camomila</h3>
-                        <p>Ideal para momentos de pausa, conforto e noites mais tranquilas.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 17,50</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=900&q=80" alt="Canela em rama e em pó">
-                    <div class="plant-body">
-                        <span class="tag">Aquecimento</span>
-                        <h3>Canela</h3>
-                        <p>Seu aroma acolhedor faz parte de infusões diárias e chás aromáticos.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 12,80</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80" alt="Folhas de coentro">
-                    <div class="plant-body">
-                        <span class="tag">Refrescante</span>
-                        <h3>Coentro</h3>
-                        <p>Folha aromática utilizada em preparos naturais e receitas caseiras.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 11,20</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=900&q=80" alt="Cravo da índia em vista de perto">
-                    <div class="plant-body">
-                        <span class="tag">Aroma</span>
-                        <h3>Cravo da Índia</h3>
-                        <p>Espécie aromática conhecida por seu uso em chá e preparo caseiro.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 13,40</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=900&q=80" alt="Erva cidreira em jardim">
-                    <div class="plant-body">
-                        <span class="tag">Calma</span>
-                        <h3>Erva-cidreira</h3>
-                        <p>Clássica para relaxar, diminuir a tensão e criar momentos de bem-estar.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 18,90</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Erva doce em plantação">
-                    <div class="plant-body">
-                        <span class="tag">Suavizante</span>
-                        <h3>Erva-doce</h3>
-                        <p>Ligada a aromas delicados, tradicional em infusões leves e de sabor agradável.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 16,20</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=80" alt="Hortelã fresca em vaso">
-                    <div class="plant-body">
-                        <span class="tag">Digestivo</span>
-                        <h3>Hortelã</h3>
-                        <p>Refrescante e muito apreciada em chás para conforto e sensação de leveza.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 11,90</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80" alt="Alecrim em ramo verde">
-                    <div class="plant-body">
-                        <span class="tag">Aroma</span>
-                        <h3>Alecrim</h3>
-                        <p>Folhas aromáticas que dão personalidade a infusões e preparos caseiros.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 15,60</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=900&q=80" alt="Gengibre seco e fresco">
-                    <div class="plant-body">
-                        <span class="tag">Aquecimento</span>
-                        <h3>Gengibre</h3>
-                        <p>Raiz muito usada em preparos foras do comum, com aroma marcante e acolhedor.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 19,50</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=900&q=80" alt="Sálvia verde em vaso">
-                    <div class="plant-body">
-                        <span class="tag">Calma</span>
-                        <h3>Sálvia</h3>
-                        <p>Tradicional em infusões suaves, com aroma distinto e uso valorizado no cuidado.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 17,80</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="plant-card">
-                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=80" alt="Calêndula em flor">
-                    <div class="plant-body">
-                        <span class="tag">Cuidado</span>
-                        <h3>Calêndula</h3>
-                        <p>Floral e suave, muito apreciada em preparos que valorizam bem-estar e rotina leve.</p>
-                        <div class="plant-meta">
-                            <div class="plant-price">R$ 18,30</div>
-                            <button class="add-btn">+ Carrinho</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="modo-de-uso">
-            <div class="section-header">
-                <h2>Como usar com segurança</h2>
-                <p>Prepare de acordo com a parte da planta para diferenciar infusão, decocção e usos externos.</p>
-            </div>
-
-            <div class="grid-cards">
-                <div class="card">
-                    <h3>1. Infusão</h3>
-                    <p>Ideal para folhas e flores delicadas, como camomila, hortelã e erva-cidreira.</p>
-                    <p><strong>Como fazer:</strong> Ferva a água, desligue o fogo e deixe as ervas em infusão por 5 a 10 minutos.</p>
-                </div>
-
-                <div class="card">
-                    <h3>2. Decocção</h3>
-                    <p>Indicada para raízes e cascas mais firmes, como gengibre e canela.</p>
-                    <p><strong>Como fazer:</strong> Ferva a planta em água por 10 a 15 minutos em fogo baixo e coe antes de consumir.</p>
-                </div>
-
-                <div class="card">
-                    <h3>3. Compressa e banho</h3>
-                    <p>Uso externo para conforto muscular e relaxamento, especialmente com ervas suaves.</p>
-                    <p><strong>Como fazer:</strong> Prepare uma infusão mais concentrada e use em gaze, compressa ou banho.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="prevencoes" class="alert-section">
-            <div class="section-header">
-                <h2>⚠️ Cuidados e alergias</h2>
-                <p>Mesmo sendo naturais, as plantas devem ser usadas com atenção e orientação adequada.</p>
-            </div>
-
-            <ol>
-                <li><strong>Teste inicial:</strong> Antes de usar pela primeira vez, teste em pequena quantidade para verificar tolerância.</li>
-                <li><strong>Reações adversas:</strong> Se aparecer coceira, vermelhidão, inchaço ou dificuldade para respirar, interrompa o uso e procure ajuda médica.</li>
-                <li><strong>Gestação e amamentação:</strong> Sempre consulte um profissional antes de usar plantas medicinais nesses períodos.</li>
-                <li><strong>Interações:</strong> Em caso de remédios contínuos, verifique se há conflito com o tratamento que você já faz.</li>
-                <li><strong>Uso moderado:</strong> O natural não elimina a necessidade de dosagem, pausa e atenção às indicações.</li>
-            </ol>
-        </section>
-
-        <section>
-            <div class="section-header">
-                <h2>O que nossos clientes dizem</h2>
-                <p>Experiências reais de pessoas que descobriram a praticidade e a qualidade da nossa seleção.</p>
-            </div>
-
-            <div class="testimonials">
-                <div class="testimonial">
-                    <strong>Marina S.</strong>
-                    <p>“As ervas têm qualidade excelente. A camomila e a erva-cidreira viraram rotina em casa.”</p>
-                </div>
-
-                <div class="testimonial">
-                    <strong>Rafael C.</strong>
-                    <p>“A apresentação é linda e o envio foi rápido. Achei muito profissional e confiável.”</p>
-                </div>
-
-                <div class="testimonial">
-                    <strong>Patrícia L.</strong>
-                    <p>“A variedade é ótima e os preços fazem sentido para o que oferece. Recomendo.”</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contato" class="newsletter">
-            <div>
-                <h3>Receba ofertas exclusivas</h3>
-                <p>Inscreva-se e fique por dentro das novidades da Verde &amp; Cura.</p>
-            </div>
-
-            <form class="newsletter-form">
-                <input type="email" placeholder="Seu melhor e-mail" aria-label="Seu melhor e-mail">
-                <button type="submit">Cadastrar</button>
-            </form>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Verde &amp; Cura - Loja de Plantas Medicinais. Todos os direitos reservados.</p>
-        <p><small>Isenção de responsabilidade: informações de caráter informativo e não substituem orientação médica.</small></p>
+        <div class="copyright">
+            &copy; 2026 Estilo Bruto Moda Country. Todos os direitos reservados.
+        </div>
     </footer>
 
 </body>
